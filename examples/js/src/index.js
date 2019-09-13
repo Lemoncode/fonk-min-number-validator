@@ -3,15 +3,14 @@ import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
   field: {
-    myField: [minNumber.validator],
+    myField: [{ validator: minNumber.validator, customArgs: { minValue: 5 } }],
   },
 };
 
 const formValidation = createFormValidation(validationSchema);
 
-// TODO: Update example values 'test' and/or 10 if needed
 Promise.all([
-  formValidation.validateField('myField', 'test'),
+  formValidation.validateField('myField', 1),
   formValidation.validateField('myField', 10),
 ]).then(([failedResult, succeededResult]) => {
   document.getElementById('app').innerHTML = `
@@ -19,7 +18,7 @@ Promise.all([
   <h2>Example with failed result:</h2>
 
 <pre>
-  formValidation.validateField('myField', 'test')
+  formValidation.validateField('myField', 1)
 </pre>
 
   <h3>Result: </h3>
