@@ -107,6 +107,7 @@ describe('fonk-min-number-validator specs', () => {
     // Act
     const result = validator({
       value,
+      message: 'The value must be greater than 1',
       customArgs: { minValue: 1, inclusive: false },
     });
 
@@ -234,6 +235,28 @@ describe('fonk-min-number-validator specs', () => {
     expect(result).toEqual({
       succeeded: false,
       message: 'The value must be greater than or equal to 0',
+      type: VALIDATOR_TYPE,
+    });
+  });
+
+  it('should return failed validation with interpolated message', () => {
+    // Arrange
+    const value = 99;
+
+    // Act
+    const result = validator({
+      value,
+      message:
+        'The minimum value is {{minValue}} and value is less than {{minValue}}!',
+      customArgs: {
+        minValue: 100,
+      },
+    });
+
+    // Assert
+    expect(result).toEqual({
+      succeeded: false,
+      message: 'The minimum value is 100 and value is less than 100!',
       type: VALIDATOR_TYPE,
     });
   });
