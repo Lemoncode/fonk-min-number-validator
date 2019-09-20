@@ -1,24 +1,11 @@
 import { FieldValidationFunctionSync } from '@lemoncode/fonk';
+import { CustomValidatorArgs } from './validator.model';
+import { isDefined, buildCustomMessage } from './validator.business';
 
 const VALIDATOR_TYPE = 'MIN_NUMBER';
 
 let defaultMessage = 'The value must be greater than or equal to {{minValue}}';
 export const setErrorMessage = (message: string) => (defaultMessage = message);
-
-const buildCustomMessage = (message: string, args: CustomValidatorArgs) =>
-  message &&
-  Object.keys(args).reduce(
-    (accum, current) =>
-      accum.replace(new RegExp(`{{${current}}}`, 'gi'), args[current]),
-    message
-  );
-
-const isDefined = value => value !== void 0 && value !== null && value !== '';
-
-interface CustomValidatorArgs {
-  minValue: number;
-  inclusive?: boolean;
-}
 
 const defaultCustomArgs: CustomValidatorArgs = {
   minValue: 0,
