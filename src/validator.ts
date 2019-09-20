@@ -51,10 +51,7 @@ export const validator: FieldValidationFunctionSync<
     succeeded,
     message: succeeded
       ? ''
-      : (buildCustomMessage(
-          (message as string) || defaultMessage,
-          args
-        ) as string),
+      : buildCustomMessage((message as string) || defaultMessage, args),
     type: VALIDATOR_TYPE,
   };
 };
