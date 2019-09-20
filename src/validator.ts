@@ -9,9 +9,7 @@ const buildCustomMessage = (message: string, args: CustomValidatorArgs) =>
   message &&
   Object.keys(args).reduce(
     (accum, current) =>
-      accum
-        .replace(new RegExp(`{{${current}}}`, 'gi'), args[current])
-        .replace(/  /g, ' '),
+      accum.replace(new RegExp(`{{${current}}}`, 'gi'), args[current]),
     message
   );
 
