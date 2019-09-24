@@ -51,7 +51,7 @@ You can customize the error message displayed in two ways:
 ```javascript
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
-minNumber.setErrorMessage('El campo debe de ser numérico');
+minNumber.setErrorMessage('El campo debe de ser mayor que {{minValue}}');
 ```
 
 - Locally just override the error message for this validationSchema:
