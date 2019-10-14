@@ -1,6 +1,6 @@
 # fonk-min-number-validator
 
-[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-min-number-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-min-number-validator/tree/master)
+[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-min-number-validator/master?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-min-number-validator/tree/master)
 [![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-min-number-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-min-number-validator)
 [![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-min-number-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-min-number-validator)
 
