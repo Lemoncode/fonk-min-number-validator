@@ -1,6 +1,6 @@
 {
   "name": "@lemoncode/fonk-min-number-validator",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to validate if a number field of a form is greater (or optionally equal) than a minimum value",
   "main": "dist/@lemoncode/fonk-min-number-validator.cjs.js",
   "module": "dist/@lemoncode/fonk-min-number-validator.esm.js",
