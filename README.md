@@ -14,7 +14,7 @@ We have the following form model:
 
 ```
 const myFormValues = {
-  product : 'shoes',
+  product: 'shoes',
   price: 20,
 }
 ```
@@ -25,7 +25,9 @@ We can add a minNumber validation to the myFormValues
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
-  price: [minNumber.validator],
+  field: {
+    price: [minNumber.validator],
+  },
 };
 ```
 
@@ -35,12 +37,14 @@ We can specify the minimun value allowed and if it is inclusive:
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: minNumber.validator,
-      customArgs: { minValue: 5, inclusive: false },
-    },
-  ],
+  field: {
+    price: [
+      {
+        validator: minNumber.validator,
+        customArgs: { minValue: 5, inclusive: false },
+      },
+    ],
+  },
 };
 ```
 
@@ -60,12 +64,14 @@ minNumber.setErrorMessage('El campo debe de ser numérico');
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: minNumber.validator,
-      message: 'Error message only updated for the validation schema',
-    },
-  ],
+  field: {
+    price: [
+      {
+        validator: minNumber.validator,
+        message: 'Error message only updated for the validation schema',
+      },
+    ],
+  },
 };
 ```
 
