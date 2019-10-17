@@ -263,17 +263,22 @@ describe('fonk-min-number-validator specs', () => {
 
   it('should overwrite default message when it feeds value and calls to setErrorMessage', () => {
     // Arrange
-    const value = 'test';
+    const value = 10;
 
-    setErrorMessage('other message');
+    setErrorMessage('The value must be greater than {{minValue}}!');
 
     // Act
-    const result = validator({ value });
+    const result = validator({
+      value,
+      customArgs: {
+        minValue: 100,
+      },
+    });
 
     // Assert
     expect(result).toEqual({
       succeeded: false,
-      message: 'other message',
+      message: 'The value must be greater than 100!',
       type: VALIDATOR_TYPE,
     });
   });

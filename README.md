@@ -1,6 +1,6 @@
 # fonk-min-number-validator
 
-[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-min-number-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-min-number-validator/tree/master)
+[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-min-number-validator/master?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-min-number-validator/tree/master)
 [![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-min-number-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-min-number-validator)
 [![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-min-number-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-min-number-validator)
 
@@ -55,7 +55,7 @@ You can customize the error message displayed in two ways:
 ```javascript
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
-minNumber.setErrorMessage('El campo debe de ser numérico');
+minNumber.setErrorMessage('El campo debe de ser mayor que {{minValue}}');
 ```
 
 - Locally just override the error message for this validationSchema:
