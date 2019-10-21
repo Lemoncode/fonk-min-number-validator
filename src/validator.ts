@@ -7,15 +7,21 @@ const VALIDATOR_TYPE = 'MIN_NUMBER';
 let defaultMessage = 'The value must be greater than or equal to {{minValue}}';
 export const setErrorMessage = (message: string) => (defaultMessage = message);
 
-const defaultCustomArgs: CustomValidatorArgs = {
+let defaultCustomArgs: CustomValidatorArgs = {
+  strictTypes: false,
   minValue: 0,
   inclusive: true,
 };
+export const setCustomArgs = (customArgs: CustomValidatorArgs) =>
+  (defaultCustomArgs = customArgs);
 
-const validateType = value => typeof value === 'number';
+const validateType = (value, args: CustomValidatorArgs) =>
+  !args.strictTypes || typeof value === 'number';
 
 const validate = (value, args: CustomValidatorArgs) =>
-  args.inclusive ? value >= args.minValue : value > args.minValue;
+  !isNaN(Number(value)) && args.inclusive
+    ? value >= args.minValue
+    : value > args.minValue;
 
 export const validator: FieldValidationFunctionSync<
   CustomValidatorArgs
@@ -32,7 +38,7 @@ export const validator: FieldValidationFunctionSync<
   };
 
   const succeeded =
-    !isDefined(value) || (validateType(value) && validate(value, args));
+    !isDefined(value) || (validateType(value, args) && validate(value, args));
 
   return {
     succeeded,

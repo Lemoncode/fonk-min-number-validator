@@ -38,10 +38,30 @@ const validationSchema = {
   price: [
     {
       validator: minNumber.validator,
-      customArgs: { minValue: 5, inclusive: false },
+      customArgs: { minValue: 5, inclusive: false, strictTypes: true },
     },
   ],
 };
+```
+
+You can specify the custom arguments in two ways:
+
+- Locally just customize the arguments for this validationSchema:
+
+```javascript
+import { minNumber } from '@lemoncode/fonk-min-number-validator';
+
+const validationSchema = {
+  price: [{ validator: minNumber.validator, customArgs: { minValue: 5, inclusive: false, strictTypes: true },],
+};
+```
+
+- Globally, replace the default custom arguments in all validationSchemas (e.g. enable strict types):
+
+```javascript
+import { minNumber } from '@lemoncode/fonk-min-number-validator';
+
+minNumber.setCustomArgs({ minValue: 5, inclusive: false, strictTypes: true });
 ```
 
 You can customize the error message displayed in two ways:
