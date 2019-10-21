@@ -1,6 +1,6 @@
 # fonk-min-number-validator
 
-[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-min-number-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-min-number-validator/tree/master)
+[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-min-number-validator/master?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-min-number-validator/tree/master)
 [![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-min-number-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-min-number-validator)
 [![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-min-number-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-min-number-validator)
 
@@ -14,7 +14,7 @@ We have the following form model:
 
 ```
 const myFormValues = {
-  product : 'shoes',
+  product: 'shoes',
   price: 20,
 }
 ```
@@ -25,7 +25,9 @@ We can add a minNumber validation to the myFormValues
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
-  price: [minNumber.validator],
+  field: {
+    price: [minNumber.validator],
+  },
 };
 ```
 
@@ -35,12 +37,14 @@ We can specify the minimun value allowed and if it is inclusive:
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: minNumber.validator,
-      customArgs: { minValue: 5, inclusive: false, strictTypes: true },
-    },
-  ],
+  field: {
+    price: [
+      {
+        validator: minNumber.validator,
+        customArgs: { minValue: 5, inclusive: false },
+      },
+    ],
+  },
 };
 ```
 
@@ -52,7 +56,14 @@ You can specify the custom arguments in two ways:
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
-  price: [{ validator: minNumber.validator, customArgs: { minValue: 5, inclusive: false, strictTypes: true },],
+  field: {
+    price: [
+      {
+        validator: minNumber.validator,
+        customArgs: { minValue: 5, inclusive: false, strictTypes: true },
+      },
+    ],
+  },
 };
 ```
 
@@ -80,12 +91,14 @@ minNumber.setErrorMessage('El campo debe de ser mayor que {{minValue}}');
 import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: minNumber.validator,
-      message: 'Error message only updated for the validation schema',
-    },
-  ],
+  field: {
+    price: [
+      {
+        validator: minNumber.validator,
+        message: 'Error message only updated for the validation schema',
+      },
+    ],
+  },
 };
 ```
 
