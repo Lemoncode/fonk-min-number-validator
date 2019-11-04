@@ -8,6 +8,12 @@ This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings val
 
 - Validate if a number field of a form is greater (or optionally equal) than a minimum value
 
+How to install it:
+
+```bash
+npm install @lemoncode/fonk-min-number-validator --save
+```
+
 How to add it to an existing form validation schema:
 
 We have the following form model:
