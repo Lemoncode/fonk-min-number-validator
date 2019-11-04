@@ -290,10 +290,10 @@ describe('fonk-min-number-validator specs', () => {
     // Arrange
     const value = '-1';
 
-    setCustomArgs({ minValue: -5, strictTypes: false });
+    setCustomArgs({ strictTypes: false });
 
     // Act
-    const result = validator({ value });
+    const result = validator({ value, customArgs: { minValue: -5 } });
 
     // Assert
     expect(result).toEqual({

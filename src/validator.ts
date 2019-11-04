@@ -19,8 +19,8 @@ let defaultCustomArgs: CustomValidatorArgs = {
   minValue: 0,
   inclusive: true,
 };
-export const setCustomArgs = (customArgs: CustomValidatorArgs) =>
-  (defaultCustomArgs = customArgs);
+export const setCustomArgs = (customArgs: Partial<CustomValidatorArgs>) =>
+  (defaultCustomArgs = { ...defaultCustomArgs, ...customArgs });
 
 const validateType = (value, args: CustomValidatorArgs) =>
   !args.strictTypes || typeof value === 'number';
