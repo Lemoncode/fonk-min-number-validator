@@ -3,7 +3,12 @@ import { minNumber } from '@lemoncode/fonk-min-number-validator';
 
 const validationSchema = {
   field: {
-    myField: [{ validator: minNumber.validator, customArgs: { minValue: 5 } }],
+    myField: [
+      {
+        validator: minNumber.validator,
+        customArgs: { minValue: 5, strictTypes: true },
+      },
+    ],
   },
 };
 
